@@ -118,6 +118,7 @@ class GerenciadorContatos {
     removerContato(id) {
         this.contatos = this.contatos.filter(contato => contato.id !== id);
         this.atualizarLista();
+        this.showNotification();
     }
 
     buscarContato() {
@@ -165,6 +166,14 @@ class GerenciadorContatos {
 
             this.lista.appendChild(li);
         });
+    }
+    showNotification() {
+        const notification = document.getElementById('notification');
+        notification.style.opacity = 1;
+    
+        setTimeout(() => {
+            notification.style.opacity = 0;
+        }, 2000); // Exibe a notificação por 5 segundos
     }
 }
 
