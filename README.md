@@ -41,7 +41,7 @@ Este desafio tem como prêmio **100 reais no Pix** para o melhor projeto apresen
 
 ### Instruções de Uso
 
-1. **Clonagem do Repositório**: Clone este repositório para sua máquina local usando `git clone <URL>`.
+1. **Clonagem do Repositório**: Clone este repositório para sua máquina local usando `git clone [<URL>](https://github.com/aureliodeboa/Desafio-FAP)`.
 2. **Acessar o Projeto**: Navegue até o diretório do projeto e abra o arquivo `index.html` em um navegador da web.
 3. **Interação**: Utilize a interface para adicionar, editar e remover contatos.
 
