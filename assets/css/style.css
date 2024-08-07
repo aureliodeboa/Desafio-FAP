@@ -164,7 +164,7 @@ li .delete:hover {
     right: 10px;
     cursor: pointer;
     font-size: 20px;
-    color: #aaa;
+    color: #e40707;
 }
 
 .close-btn:hover {
@@ -227,4 +227,8 @@ hr {
 .warning div {
     display: flex;
     align-items: center;
+}
+
+.error-icon{
+    margin-right: 10px;
 }
