@@ -1,5 +1,5 @@
 class Contato {
-    constructor(nome, telefone, email = '', foto = 'assets/imagens/perfil.png') {
+    constructor(nome, telefone, email = '', foto = 'assets/imagens/perfil-white.png') {
         this.id = uuid.v4();
         this.nome = nome;
         this.telefone = telefone;
@@ -101,6 +101,9 @@ class GerenciadorContatos {
             this.atualizarLista();
             this.fecharModal();
         }
+        else{
+            this.showNotification("Você deve preencher nome e telefone!");
+        }
     }
 
     salvarContato(id) {
@@ -117,7 +120,7 @@ class GerenciadorContatos {
     removerContato(id) {
         this.contatos = this.contatos.filter(contato => contato.id !== id);
         this.atualizarLista();
-        this.showNotification();
+        this.showNotification("Contato removido");
     }
 
     buscarContato() {
@@ -166,14 +169,18 @@ class GerenciadorContatos {
             this.lista.appendChild(li);
         });
     }
-    showNotification() {
+    showNotification(text_notification) {
         const notification = document.getElementById('notification');
+        const text= document.getElementById('text-notification');
+        text.textContent = text_notification; // Corrigido para definir o texto
         notification.style.opacity = 1;
-    
+        
         setTimeout(() => {
             notification.style.opacity = 0;
         }, 2000); // Exibe a notificação por 5 segundos
     }
+
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
