@@ -11,7 +11,6 @@ class Contato {
 class GerenciadorContatos {
     constructor() {
         this.contatos = [
-            new Contato('Meu numero','74-99967-5047','','assets/imagens/aurelio.jpg'),
             new Contato('Minha Ex (Luiza)','87-99906-6678','','assets/imagens/luiza-sonza.png'),
             new Contato('Primo Lima','71-99940-0420','','assets/imagens/gustavo.png'),
             new Contato('Menino Ney','71-99975-5023','','assets/imagens/ney.png'),

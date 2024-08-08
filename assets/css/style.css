@@ -8,12 +8,14 @@
     --font-primaria: "Poppins", sans-serif;
     --color-btn: #307203;
     --color-btn-dark: #050505;
+    --color-background: #060e1b;
     
 }
 
 body {
     font-family: var(--font-primaria);
-    background-color: #f4f4f4;
+    background: rgb(0,189,255);
+    background: linear-gradient(130deg, rgba(0,189,255,1) 0%, rgba(14,16,50,1) 100%);
     margin: 0;
     padding: 0;
     display: flex;
@@ -23,7 +25,8 @@ body {
 }
 
 .container {
-    background: white;
+    color: white;
+    background: var(--color-background);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
@@ -39,14 +42,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
     padding: 0px;
-}
-
-#contact-modal-title{
-    padding: 0px;
-    text-align: center;
-    color: #333;
 }
 
 input[type="text"], input[type="tel"], input[type="email"] {
@@ -60,21 +56,34 @@ input[type="text"], input[type="tel"], input[type="email"] {
     height: 40px;
     width: 40px;
     padding: 5px;
-    background: #307203;
+    background: #0d0f0c70;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease; /* Adiciona transição para fundo e transformação */
+    transition: transform 0.2s ease; /* Adiciona transição para transformação */
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(130deg, rgba(0,189,255,1) 41%, rgba(6,14,27,1) 93%);
+    background-size: 200% 200%; /* Aumenta o tamanho do fundo para criar o efeito de movimento */
 }
 
-/* Efeito de zoom no hover */
+@keyframes reflection {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 #add-contact-btn:hover {
-    background: #0e2201;
-    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    transform: scale(1.08); /* Efeito de zoom */
+    animation: reflection 2s infinite; /* Animação de reflexo */
 }
 
 ul {
@@ -89,37 +98,41 @@ ul {
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 .contact-main{
+
     flex: 1;
     padding: 2px;
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    font-weight: bold;
-    color: #292828;
+    font-weight: 800;
+    color: #ebe8e8;
    
 }
 .contact-main img{
     margin-right: 15px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
+
 li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border: 1px solid #ddd;
+    background: var(--color-background);
     border-radius: 4px;
     margin-top: 10px;
     cursor: pointer;
-    transition: background 0.3s;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s ease, background 2.0s ease;
+    background-size: 600% 100%; /* Aumenta o tamanho do fundo para criar o efeito de transição */
+    background-position: right center; /* Posição inicial do fundo */
 }
 
 li:hover {
-    background: #f0f0f0;
-    transform: scale(1.05); /* Aumenta o tamanho em 5% */   
+    background-image: linear-gradient(130deg,rgba(0,189,255,1)  61%, rgba(6,14,27,1) 93%);
+    background-position: left center; /* Move o fundo para criar o efeito de preenchimento */
+    transform: scale(1.08); /* Efeito de zoom */
 }
+
 
 li button {
     margin-left: 10px;
@@ -128,7 +141,7 @@ li button {
 
 li .delete {
     border: none;
-    color: black;
+    color: rgb(83, 80, 80);
     border-radius: 100px;
     margin-left: 2px;
     padding: 5px 5px;
@@ -136,9 +149,28 @@ li .delete {
     transition: background 0.3s;
 }
 
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+        
+    }
+    25% {
+        
+        transform: translateX(-3px);
+    }
+    50% {
+       
+        transform: translateX(3px);
+    }
+    75% {
+        
+        transform: translateX(-3px);
+    }
+}
+
 li .delete:hover {
-    background: #fa061fb4;
-    color: white;
+    color: rgb(0, 0, 0);
+    animation: shake 1.0s infinite; /* Aplica a animação de chacoalhar */
 }
 
 .modal-hidden {
@@ -154,13 +186,17 @@ li .delete:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Cor do fundo com opacidade */
+    backdrop-filter: blur(8px); /* Adiciona o efeito de desfoque */
+    
 }
 
 .modal-content {
     
     font-family: var(--font-primaria);
-    background: white;
+   
+    background: rgb(0,189,255);
+    background: linear-gradient(130deg, rgba(0,189,255,1) 5%, rgba(14,16,50,1) 86%);
    
     padding-bottom: 20px;
     border-radius: 8px;
@@ -173,22 +209,37 @@ li .delete:hover {
     align-items: center;
 }
 .modal-content-header{
+
     width: 300px;
     padding-inline:  10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: #d8d3d3 1px solid;
+    
 }
+#modal-title{
+    font-size: large;
+    color: white;
+}
+
+
+#contact-modal-title{
+    padding: 0px;
+    text-align: start;
+    color: #ffffff;
+    font-size: large;
+}
+
 
 #contact-name-display{
     font-size: large;
-    font-weight: 600;
+    font-weight: 800;
+    color: white;
 }
 .label-name{
     font-size: 12px;
     font-weight: 500;
-    color: #aaa;
+    color: #f0efef;
 }
 
 #contact-form{
@@ -197,15 +248,17 @@ li .delete:hover {
 }
 
 .close-btn {
-   
+    
     cursor: pointer;
-    font-size: 20px;
-    color: #e40707;
+    font-size: 205px;
+    color: #ff0000;
+    transition: transform 0.2s ease, color 0.2s ease; /* Adiciona transições para o tamanho e a cor */
 }
 
 .close-btn:hover {
-    color: #000;
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
 }
+
 
 .modal-content-card-background{
     padding-top: 18px;
@@ -262,7 +315,7 @@ li .delete:hover {
 
 /* Efeito de zoom no hover */
 #search:hover {
-    transform: scale(1.05); /* Aumenta o tamanho em 5% */
+    transform: scale(1.01); /* Aumenta o tamanho em 5% */
 }
 
 
@@ -307,4 +360,9 @@ li .delete:hover {
     font-weight: 600;
     border: none;
     transition: transform 0.3s;
+}
+
+#modal-submit-btn:hover {
+    transform: scale(1.05);
+    background-position: -100% 0;
 }
