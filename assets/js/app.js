@@ -15,8 +15,8 @@ class GerenciadorContatos {
             new Contato('Primo Lima','71-99940-0420','','assets/imagens/gustavo.png'),
             new Contato('Menino Ney','71-99975-5023','','assets/imagens/ney.png'),
             new Contato('Tiringa','75-99923-7075','','assets/imagens/tiringa.png'),
-           
         ];
+        
         this.lista = document.getElementById('contact-list');
         this.search = document.getElementById('search');
         this.contactDetailsModal = document.getElementById('contact-modal');
@@ -100,9 +100,10 @@ class GerenciadorContatos {
             this.contatos.push(contato);
             this.atualizarLista();
             this.fecharModal();
+            this.showNotification('Contato adicionado com sucesso!', 'success');
         }
         else{
-            this.showNotification("Você deve preencher nome e telefone!");
+            this.showNotification("Você deve preencher nome e telefone!", 'warning');
         }
     }
 
@@ -120,7 +121,7 @@ class GerenciadorContatos {
     removerContato(id) {
         this.contatos = this.contatos.filter(contato => contato.id !== id);
         this.atualizarLista();
-        this.showNotification("Contato removido");
+        this.showNotification('Contato removido!', 'warning');
     }
 
     buscarContato() {
@@ -169,15 +170,30 @@ class GerenciadorContatos {
             this.lista.appendChild(li);
         });
     }
-    showNotification(text_notification) {
+    showNotification(text_notification, type) {
         const notification = document.getElementById('notification');
         const text= document.getElementById('text-notification');
-        text.textContent = text_notification; // Corrigido para definir o texto
-        notification.style.opacity = 1;
+        const iconError = document.getElementById('icon-error');
+        const iconCheck = document.getElementById('icon-check');
         
+        text.textContent = text_notification;
+        
+        if (type === 'success') {
+            notification.style.background = '#4CAF50';
+            iconError.style.display = 'none';
+            iconCheck.style.display = 'inline';
+            
+        } else {
+            notification.style.background = '#C93847';
+            iconCheck.style.display = 'none';
+            iconError.style.display = 'inline';
+        }
+
+        notification.style.opacity = 1;
+
         setTimeout(() => {
             notification.style.opacity = 0;
-        }, 2000); // Exibe a notificação por 5 segundos
+        }, 3000); // Exibe a notificação por 5 segundos
     }
 
 
