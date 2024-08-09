@@ -25,23 +25,25 @@ body {
     min-height: 100vh;
 }
 
+/* Toda a parte inicial */
+
 .container {
     color: white;
     background: var(--color-background);
-    padding: 20px 20px; /* Ajusta o padding para criar mais espaço interno */
+    padding: 20px 20px;
     border-radius: 15px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
     max-width: 400px;
     width: 100%;
     position: relative;
-    max-height: 700px; /* Define a altura máxima do contêiner */
+    max-height: 700px; 
     overflow: auto; 
     
 }
 
 /* Personaliza a largura da barra de rolagem */
 .container::-webkit-scrollbar {
-    width: 12px; /* Largura da barra de rolagem vertical */
+    width: 12px; 
 }
 
 /* Personaliza o estilo da parte que é rolada */
@@ -80,7 +82,7 @@ input[type="text"], input[type="tel"], input[type="email"] {
 }
 
 #add-contact-btn {
-    height: 40px;
+    height: 42px;
     width: 40px;
     padding: 5px;
     background: #0d0f0c70;
@@ -116,28 +118,6 @@ input[type="text"], input[type="tel"], input[type="email"] {
 ul {
     list-style: none;
     padding: 0;
-}
-.contact-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right:0px;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
-.contact-main{
-
-    flex: 1;
-    padding: 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    font-weight: 800;
-    color: #ebe8e8;
-   
-}
-.contact-main img{
-    margin-right: 15px;
 }
 
 li {
@@ -176,6 +156,38 @@ li .delete {
     transition: background 0.3s;
 }
 
+li .delete:hover {
+    color: rgb(0, 0, 0);
+    animation: shake 1.0s infinite; /* Aplica a animação de chacoalhar */
+}
+
+/* Toda a parte inicial */
+
+/* Detalhes do Contato e Adicionar Novo Contato */
+
+.contact-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right:0px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.contact-main{
+
+    flex: 1;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-weight: 800;
+    color: #ebe8e8;
+   
+}
+.contact-main img{
+    margin-right: 15px;
+}
+
 @keyframes shake {
     0%, 100% {
         transform: translateX(0);
@@ -193,11 +205,6 @@ li .delete {
         
         transform: translateX(-3px);
     }
-}
-
-li .delete:hover {
-    color: rgb(0, 0, 0);
-    animation: shake 1.0s infinite; /* Aplica a animação de chacoalhar */
 }
 
 .modal-hidden {
@@ -274,6 +281,11 @@ li .delete:hover {
     flex-direction: column;
 }
 
+#modal-form{
+    display: flex;
+    flex-direction: column;
+}
+
 .close-btn {
     
     cursor: pointer;
@@ -300,14 +312,13 @@ li .delete:hover {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-   
-
-    
 }
+
 #contact-photo:hover{
     transform: scale(1.15);
     
 }
+
 #contact-form p, #contact-form input {
     margin-bottom: 10px;
 }
@@ -342,16 +353,38 @@ li .delete:hover {
     transition: transform 0.2s ease; /* Adiciona uma transição suave */
 }
 
-/* Efeito de zoom no hover */
 #search:hover {
     transform: scale(1.01); /* Aumenta o tamanho em 5% */
 }
 
+#modal-form{
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-submit-btn{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--color-btn);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.3s;
+}
+
+#modal-submit-btn:hover {
+    transform: scale(1.05);
+    background-position: -100% 0;
+}
+
+/* Detalhes do Contato e Adicionar Novo Contato */
+
+/* Notificação */
 
 .warning {
     position: absolute;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 40px;
@@ -370,28 +403,11 @@ li .delete:hover {
 .warning div {
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 
-.error-icon{
+.icon{
     margin-right: 10px;
 }
 
-#modal-form{
-    display: flex;
-    flex-direction: column;
-}
-#modal-submit-btn{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: var(--color-btn);
-    color: #fff;
-    cursor: pointer;
-    font-weight: 600;
-    border: none;
-    transition: transform 0.3s;
-}
-
-#modal-submit-btn:hover {
-    transform: scale(1.05);
-    background-position: -100% 0;
-}
+/* Notificação */
